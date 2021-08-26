@@ -1,7 +1,6 @@
 var fs = require("fs");
 
 var myReader = fs.createReadStream(__dirname + "/BigTextFile.txt")
+var myWriter = fs.createWriteStream(__dirname + "/NewBigTextFile.txt")
 
-myReader.on("data", function(chunk) {
-  console.log("NEW DATA:\n" + chunk);
-})
+myReader.pipe(myWriter)
