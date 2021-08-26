@@ -1,3 +1,4 @@
 var fs = require("fs")
 
-console.log(fs.readFileSync("file.txt", "utf8"));
+var text = "NEW FILE TEXT"
+fs.writeFileSync("new_file.txt", text);
