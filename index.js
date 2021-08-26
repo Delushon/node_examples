@@ -6,9 +6,9 @@ var http = require("http");
 
 var server = http.createServer(function(request, response) {
   console.log("URL " + request.url);
-  response.writeHead(200, {"Content-Type" : "text/plain; charset=utf-8"});
+  response.writeHead(200, {"Content-Type" : "text/html; charset=utf-8"});
 
-  var myReader = fs.createReadStream(__dirname + "/BigTextFile.txt")
+  var myReader = fs.createReadStream(__dirname + "/index.html")
   myReader.pipe(response)
 });
 
