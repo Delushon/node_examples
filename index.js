@@ -1,5 +1,9 @@
-var module = require("./module")
+var events = require("events")
 
-console.log(module.getArrayCountString([1]));
-console.log(module.getArrayCountString([1,2]));
-console.log(module.getArrayCountString([1,2,3,4,5]));
+var observer = new events.EventEmitter();
+
+observer.on("some_event", function(text) {
+  console.log(text);
+});
+
+observer.emit("some_event", "EXAMPLE TEXT FOR OBSERVER")
