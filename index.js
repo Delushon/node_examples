@@ -1,6 +1,4 @@
 var fs = require("fs")
 
-
-fs.unlink("file.txt", function() {
-  console.log("Файл удален");
-});
+fs.mkdirSync("new_dir");
+fs.rmdirSync("new_dir");
