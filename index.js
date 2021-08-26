@@ -1,4 +1,8 @@
 var fs = require("fs")
 
-var text = "NEW FILE TEXT"
-fs.writeFileSync("new_file.txt", text);
+
+console.log(fs.readFile("file.txt", "utf8", function(err, data) {
+  console.log(data);
+}));
+
+console.log("Строка после асинхронного чтения");
