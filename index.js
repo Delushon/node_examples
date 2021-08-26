@@ -1,10 +1,7 @@
-var http = require("http");
+var fs = require("fs");
 
-var server = http.createServer(function(request, response) {
-  console.log("URL " + request.url);
-  response.writeHead(200, {"Content-Type" : "text/plain; charset=utf-8"});
-  response.end("HELLO WORLD.")
-});
+var myReader = fs.createReadStream(__dirname + "/BigTextFile.txt")
 
-server.listen(3333, "127.0.0.1");
-console.log("LISTEN PORT 3333");
+myReader.on("data", function(chunk) {
+  console.log("NEW DATA:\n" + chunk);
+})
