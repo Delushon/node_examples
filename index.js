@@ -5,7 +5,7 @@ let app = express();
 app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
-  response.sendFile(__dirname + "/index.html");
+  response.render("index");
 });
 
 app.get("/:id", function (request, response) {
