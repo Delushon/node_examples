@@ -1,11 +1,13 @@
-var http = require("http");
+var express = require("express");
 
-var server = http.createServer(function(request, response) {
-  console.log("URL " + request.url);
-  response.writeHead(200, {"Content-Type" : "application/json; charset=utf-8"});
+var app = express();
 
-  response.end(request.url);
+app.get("/", function (request, response) {
+  response.send("This is home");
 });
 
-server.listen(3333, "127.0.0.1");
-console.log("LISTEN PORT 3333");
+app.get("/:id", function (request, response) {
+  response.send("Id = " + request.params.id);
+});
+
+app.listen(3333)
