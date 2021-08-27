@@ -1,13 +1,19 @@
-var express = require("express");
+let express = require("express");
 
-var app = express();
+let app = express();
+
+app.set("view engine", "ejs");
 
 app.get("/", function (request, response) {
-  response.send("This is home");
+  response.sendFile(__dirname + "/index.html");
 });
 
 app.get("/:id", function (request, response) {
   response.send("Id = " + request.params.id);
+});
+
+app.get("/news/:id", function (request, response) {
+  response.render("news", {newsId: request.params.id});
 });
 
 app.listen(3333)
